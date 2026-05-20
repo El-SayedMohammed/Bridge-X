@@ -1,0 +1,393 @@
+.cs-page *,
+.cs-page *::before,
+.cs-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cs-page {
+  min-height: 100vh;
+  background: #F8FAFC;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  color: #434751;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cs-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+.cs-card {
+  background: #FFFFFF;
+  border: 1px solid #C3C6D2;
+  box-shadow: 0px 24px 33px rgba(0, 48, 102, 0.53);
+  border-radius: 56px;
+  overflow: hidden;
+  padding-top: 58px;
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cs-card-header {
+  padding: 0 67px 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cs-title {
+  font-size: 37px;
+  font-weight: 700;
+  color: #003066;
+  letter-spacing: -0.75px;
+  line-height: 36px;
+}
+
+.cs-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #434751;
+  line-height: 24px;
+}
+
+.cs-section {
+  padding: 32px 53px 32px 45px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cs-section--danger {
+  padding-bottom: 48px;
+}
+
+.cs-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cs-section-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cs-section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1C20;
+  line-height: 28px;
+}
+
+.cs-section-title--danger {
+  color: #BA1A1A;
+}
+
+.cs-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cs-row-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1C20;
+  line-height: 24px;
+}
+
+.cs-row-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #434751;
+  line-height: 20px;
+}
+
+.cs-notif-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(30, 148, 222, 0.33);
+  border-radius: 12px;
+  gap: 24px;
+}
+
+.cs-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 9999px;
+  background: #E2E8F0;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.25s;
+  flex-shrink: 0;
+  border: none;
+  padding: 0;
+}
+
+.cs-toggle--on { background: #09468C; }
+
+.cs-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  transition: left 0.25s;
+}
+
+.cs-toggle--on .cs-toggle-knob { left: 22px; }
+
+.cs-security-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.cs-change-pwd-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #CBDAFD;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 16px;
+  font-weight: 700;
+  color: #384763;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  height: 44px;
+}
+
+.cs-change-pwd-btn:hover {
+  background: #B8CAFC;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(0, 48, 102, 0.10);
+}
+
+.cs-danger-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #FFFDFD;
+  border: 1px solid rgba(186, 26, 26, 0.2);
+  border-radius: 12px;
+  gap: 24px;
+}
+
+.cs-danger-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #93000A;
+  line-height: 24px;
+  margin-bottom: 2px;
+}
+
+.cs-danger-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(147, 0, 10, 0.7);
+  line-height: 20px;
+}
+
+.cs-danger-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid #BA1A1A;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 16px;
+  font-weight: 700;
+  color: #BA1A1A;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  height: 48px;
+}
+
+.cs-danger-btn:hover {
+  background: #BA1A1A;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(186, 26, 26, 0.15);
+}
+
+.cs-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 32px 15px;
+  gap: 32px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.cs-discard-btn {
+  padding: 10px 24px;
+  width: 194px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  color: #434751;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-discard-btn:hover {
+  background: #F1F5F9;
+  transform: translateY(-1px);
+}
+
+.cs-save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 32px;
+  width: 202px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(103.5deg, #274C9E 49.1%, #83A0E7 100.11%);
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 20px rgba(39, 76, 158, 0.3);
+}
+
+.cs-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #003066;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cs-toast--danger { background: #BA1A1A; }
+
+.cs-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.cs-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.cs-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1C20;
+  margin-bottom: 8px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cs-modal-body {
+  font-size: 14px;
+  color: #64748B;
+  line-height: 22px;
+  margin-bottom: 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.cs-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.cs-modal-cancel {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+  background: white;
+  color: #64748B;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: background 0.15s;
+}
+
+.cs-modal-cancel:hover { background: #F8FAFC; }
+
+.cs-modal-confirm {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 2px solid #BA1A1A;
+  background: white;
+  color: #BA1A1A;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  transition: background 0.15s;
+}
+
+.cs-modal-confirm:hover { background: rgba(186, 26, 26, 0.05); }
+
+@media (max-width: 860px) {
+  .cs-card { border-radius: 24px; }
+  .cs-card-header { padding: 0 32px 24px; }
+  .cs-section { padding: 24px 32px; }
+  .cs-title { font-size: 28px; }
+  .cs-subtitle { font-size: 16px; }
+}
+
+@media (max-width: 600px) {
+  .cs-content { padding: 24px 16px 60px; }
+  .cs-card-header { padding: 0 24px 20px; }
+  .cs-section { padding: 24px; }
+  .cs-notif-row,
+  .cs-security-row,
+  .cs-danger-row { flex-direction: column; align-items: flex-start; }
+  .cs-footer { padding: 24px 16px; }
+  .cs-discard-btn,
+  .cs-save-btn { width: auto; }
+}

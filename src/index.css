@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #f8fafc;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Global Nav Help Button (used in auth pages) */
+.nav-help {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #09468c;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Hide native password reveal eye icons (Edge/IE) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+}
+
+/* Global Image Hover & Animations */
+.icon-bg,
+.icon-bg-light {
+  animation: floatSoft 3.5s ease-in-out infinite;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.icon-bg:hover,
+.icon-bg-light:hover {
+  transform: scale(1.1) rotate(6deg);
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+img:not(.auth-logo-img, .login-logo-img, .splash-logo, .illustration-main) {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.auth-form img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .otp-input-group {
+    gap: 8px !important;
+  }
+  .otp-field {
+    width: 45px !important;
+    height: 55px !important;
+    font-size: 20px !important;
+  }
+  .card-title {
+    font-size: 22px !important;
+  }
+  .social-login {
+    gap: 12px !important;
+  }
+  .social-btn {
+    width: 45px !important;
+    height: 45px !important;
+  }
+}
