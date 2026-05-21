@@ -76,6 +76,7 @@ const Requests = () => {
 
           return {
             id: offer.id,
+            programmer_id: programmer.id || offer.programmer_id,
             name: name,
             role: programmer.tracks || programmer.track || programmer.role || "Developer",
             initials,
@@ -153,7 +154,7 @@ const Requests = () => {
   const handleViewProfile = (c) => {
     const initials = c.initials || c.name.split(" ").map((n) => n[0]).join("").toUpperCase();
     const devObj = {
-      id: c.id,
+      id: c.programmer_id || c.id,
       name: c.name,
       role: c.role,
       initials,

@@ -370,7 +370,12 @@
   transition: background 0.15s;
 }
 
-.cs-modal-confirm:hover { background: rgba(186, 26, 26, 0.05); }
+.cs-modal-confirm:hover {
+  background: #BA1A1A;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0px 4px 12px rgba(186, 26, 26, 0.25);
+}
 
 @media (max-width: 860px) {
   .cs-card { border-radius: 24px; }
