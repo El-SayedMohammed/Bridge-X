@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./CandidateProfile.css";
 import DashboardNav from "../../components/DashboardNav/DashboardNav";
 import JobOfferOverlay from "../../components/JobOfferOverlay/JobOfferOverlay";
-import { sendJobOffer, getProgrammerDetails } from "../../services/api";
+import { getProgrammerDetails } from "../../services/api";
 
 import envelopeIcon from "../../assets/images/envelope-icon.svg";
 import personIcon from "../../assets/images/person-icon.svg";

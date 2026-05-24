@@ -39,6 +39,7 @@ async function request(method, endpoint, body = null, useToken = false) {
     const text = await response.text();
     data = text ? JSON.parse(text) : {};
   } catch (e) {
+    console.error(e);
     data = { message: "Server returned invalid JSON (HTML Error Page)" };
   }
 

@@ -31,7 +31,7 @@ const AVATAR_GRADIENTS = [
   "linear-gradient(135deg,#8b5cf6,#6d28d9)",
 ];
 
-const ITEMS_PER_PAGE = 6;
+
 
 
 const fetchDevelopers = async (params) => {

@@ -21,7 +21,9 @@ const JobOfferOverlay = ({ isOpen, onClose, developer, onSendOffer }) => {
         const parsed = JSON.parse(saved);
         if (parsed.companyName) return parsed.companyName;
       }
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
     return "Bridge X Solutions";
   };
 

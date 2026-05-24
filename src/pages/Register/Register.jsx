@@ -103,7 +103,7 @@ function Register() {
         window.location.href = data.url;
       }
     } catch (err) {
-
+      console.error(err);
       setApiError("Failed to connect to the authentication server. Please check your connection or try again later.");
     }
   };
