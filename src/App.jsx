@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Splash from "./pages/Splash/Splash";
+import Landing from "./pages/Landing/Landing";
 import Onboarding from "./pages/Onboarding/Onboarding";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -21,7 +22,8 @@ function App() {
   return (
     <Routes>
 
-      <Route path="/" element={<Splash />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/splash" element={<Splash />} />
       <Route path="/onboarding" element={<Onboarding />} />
       <Route path="/login" element={<Login />} />
       <Route path="/auth/callback" element={<SocialCallback />} />
