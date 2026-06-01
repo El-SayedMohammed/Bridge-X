@@ -287,8 +287,7 @@ a {
   object-fit: contain;
   z-index: 2;
   position: relative;
-  /* Adding a subtle float effect */
-  transform: translateY(-20px);
+  animation: float 6s ease-in-out infinite;
 }
 
 
@@ -472,6 +471,7 @@ a {
   gap: 16px;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .step-icon {
@@ -595,9 +595,6 @@ a {
   font-weight: 500;
 }
 
-.x-mark { color: #EF4444; font-weight: bold; }
-.check-mark { color: #2563EB; font-weight: bold; }
-
 
 .cta-section {
   width: 100%;
@@ -681,6 +678,7 @@ a {
   color: #00244E;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .footer-brand p {
@@ -693,6 +691,7 @@ a {
   display: flex;
   flex-direction: row;
   gap: 16px;
+  margin-top: 24px;
 }
 
 .social-icon {
@@ -703,11 +702,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .social-icon:hover {
   background-color: #E2E5EE;
+  transform: scale(1.15) translateY(-3px);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
 .social-icon img {
@@ -741,9 +742,32 @@ a {
   font-size: 16px;
   line-height: 24px;
   text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
+.link-group a:hover {
+  color: #00244E;
+  transform: translateX(4px);
+}
 
+.footer-bottom-wrapper {
+  width: 100%;
+  border-top: 1px solid #C3C6D2;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 40px;
+  color: #434750;
+  font-size: 14px;
+  box-sizing: border-box;
+}
 
 
 
@@ -826,12 +850,6 @@ a {
 }
 
 
-.step-card {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
 .step-card::before {
   content: '';
   position: absolute;
@@ -870,30 +888,8 @@ a {
   100% { transform: translateY(0px); }
 }
 
-.dashboard-img {
-  animation: float 6s ease-in-out infinite;
-}
 
 
-.link-group a {
-  position: relative;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.link-group a:hover {
-  color: #00244E;
-  transform: translateX(4px);
-}
-
-.social-icon {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.social-icon:hover {
-  transform: scale(1.15) translateY(-3px);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-}
 
 
 @keyframes fadeInUp {

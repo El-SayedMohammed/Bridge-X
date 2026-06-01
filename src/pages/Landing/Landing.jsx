@@ -222,17 +222,17 @@ const Landing = () => {
       <footer className="footer landing-footer">
         <div className="landing-footer-container">
           <div className="footer-brand">
-            <h3 style={{color: '#00244E', fontSize: '24px', fontWeight: 'bold', marginBottom: '16px'}}>BridgeX</h3>
+            <h3>BridgeX</h3>
             <p>Connecting talent with<br/>opportunity through real-world<br/>collaboration and skill building.</p>
-            <div className="social-links" style={{marginTop: '24px'}}>
-              <a href="#" className="social-icon" style={{color: '#1B1B1B', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img src={iconSocialX} alt="X" style={{width: '20px', height: '20px'}} />
+            <div className="social-links">
+              <a href="#" className="social-icon">
+                <img src={iconSocialX} alt="X" />
               </a>
-              <a href="#" className="social-icon" style={{color: '#1B1B1B', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img src={iconSocialShare} alt="Share" style={{width: '20px', height: '20px'}} />
+              <a href="#" className="social-icon">
+                <img src={iconSocialShare} alt="Share" />
               </a>
-              <a href="#" className="social-icon" style={{color: '#1B1B1B', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img src={iconSocialGlobe} alt="Website" style={{width: '20px', height: '20px'}} />
+              <a href="#" className="social-icon">
+                <img src={iconSocialGlobe} alt="Website" />
               </a>
             </div>
           </div>
@@ -259,10 +259,10 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="footer-bottom-wrapper" style={{width: '100%', borderTop: '1px solid #C3C6D2', display: 'flex', justifyContent: 'center'}}>
-          <div className="footer-bottom" style={{width: '100%', maxWidth: '100%', display: 'flex', justifyContent: 'space-between', padding: '16px 40px', color: '#434750', fontSize: '14px', boxSizing: 'border-box'}}>
-            <p style={{margin: 0}}>© 2025 BridgeX. All rights reserved.</p>
-            <p style={{margin: 0}}>Built with precision for the tech ecosystem.</p>
+        <div className="footer-bottom-wrapper">
+          <div className="footer-bottom">
+            <p>© 2025 BridgeX. All rights reserved.</p>
+            <p>Built with precision for the tech ecosystem.</p>
           </div>
         </div>
       </footer>
