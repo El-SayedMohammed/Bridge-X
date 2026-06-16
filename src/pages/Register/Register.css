@@ -127,6 +127,7 @@
   text-shadow: 12px 4px 4px rgba(0, 0, 0, 0.2);
   margin: 20px 0 0 0;
   transition: all 0.5s ease;
+  white-space: nowrap;
 }
 
 .auth-branding:hover .auth-brand-title {
@@ -479,12 +480,25 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .auth-container {
+    gap: 40px;
+  }
+  .auth-brand-title {
+    font-size: 72px;
+  }
+  .auth-logo-wrapper {
+    width: 280px;
+  }
+}
+
 @media (max-width: 900px) {
   .auth-container {
     flex-direction: column;
     gap: 40px;
   }
   .auth-branding {
+    flex: none;
     animation: slideInDown 0.8s ease-out;
   }
   .auth-card {

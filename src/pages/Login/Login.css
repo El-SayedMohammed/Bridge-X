@@ -59,6 +59,7 @@
   text-shadow: 12px 4px 4px rgba(0, 0, 0, 0.2);
   margin: 20px 0 0 0;
   transition: all 0.5s ease;
+  white-space: nowrap;
 }
 
 .login-branding:hover .login-brand-title {
@@ -386,12 +387,25 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .login-container {
+    gap: 40px;
+  }
+  .login-brand-title {
+    font-size: 72px;
+  }
+  .login-logo-wrapper {
+    width: 280px;
+  }
+}
+
 @media (max-width: 900px) {
   .login-container {
     flex-direction: column;
     gap: 40px;
   }
   .login-branding {
+    flex: none;
     animation: slideInDown 0.8s ease-out;
   }
   .login-card {
