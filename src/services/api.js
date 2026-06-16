@@ -16,7 +16,9 @@ async function request(method, endpoint, body = null, useToken = false) {
   const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
-    "ngrok-skip-browser-warning": "true"
+    "ngrok-skip-browser-warning": "true",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache"
   };
 
   if (useToken) {
@@ -56,7 +58,9 @@ async function request(method, endpoint, body = null, useToken = false) {
 async function multipartRequest(endpoint, formData) {
   const headers = {
     Accept: "application/json",
-    "ngrok-skip-browser-warning": "true"
+    "ngrok-skip-browser-warning": "true",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache"
   };
 
   const token = getToken();
