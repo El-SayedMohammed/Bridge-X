@@ -187,13 +187,28 @@
 
 @media (max-width: 768px) {
   .splash-logo-wrapper {
-    width: 90px; /* Reduced from 140px */
+    width: 140px; 
+    margin-bottom: 24px;
   }
   .splash-title {
-    font-size: 24px; /* Reduced from 40px */
-    margin-top: 8px;
+    font-size: 40px; 
+    margin-bottom: 24px;
   }
   .splash-tagline {
-    font-size: 18px;
+    font-size: 16px;
+    gap: 8px;
+  }
+  .splash-tagline span {
+    font-size: 14px;
+  }
+  .splash-footer {
+    gap: 16px;
+    margin-top: 50px;
+  }
+  .footer-line {
+    width: 80px;
+  }
+  .footer-code {
+    font-size: 28px;
   }
 }

@@ -471,7 +471,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .company-header-section h1 {
     font-size: 36px;
   }
