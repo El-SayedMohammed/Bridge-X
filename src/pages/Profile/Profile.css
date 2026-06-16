@@ -853,8 +853,8 @@
     max-width: 100vw;
   }
   .profile-card-view, .profile-card-edit {
-    width: 95%;
-    left: 2.5%;
+    width: calc(100% - 40px);
+    margin: 120px 20px 60px 20px !important;
   }
   .view-split-layout {
     width: 100%;
@@ -1034,6 +1034,8 @@
   .profile-card-view, .profile-card-edit {
     padding: 20px;
     border-radius: 20px;
+    width: calc(100% - 32px) !important;
+    margin: 80px 16px 40px 16px !important;
   }
   .view-social-btn {
     width: 100% !important;

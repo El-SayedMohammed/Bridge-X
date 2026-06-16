@@ -14,29 +14,30 @@
 .dashboard-nav-inner {
   width: 100%;
   max-width: 1440px;
-  padding: 0 24px;
+  padding: 0 24px !important;
+  box-sizing: border-box !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.nav-left {
+.dashboard-nav .nav-left {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 
-.nav-logo {
+.dashboard-nav .nav-logo {
   font-family: "Inter", sans-serif;
   font-weight: 900;
-  font-size: 24px;
+  font-size: 24px !important;
   line-height: 32px;
   letter-spacing: -0.6px;
   color: #1e3a8a;
   text-decoration: none;
 }
 
-.nav-links {
+.dashboard-nav .nav-links {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -61,7 +62,7 @@
   color: #003066;
 }
 
-.nav-right {
+.dashboard-nav .nav-right {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -90,9 +91,9 @@
   color: #64748b;
 }
 
-.nav-avatar {
-  width: 32px;
-  height: 32px;
+.dashboard-nav .nav-avatar {
+  width: 32px !important;
+  height: 32px !important;
   border: 1px solid #e2e8f0;
   border-radius: 9999px;
   background: linear-gradient(135deg, #274c9e, #83a0e7);
@@ -112,7 +113,7 @@
   transform: scale(1.1);
 }
 
-.mobile-menu-btn {
+.dashboard-nav .mobile-menu-btn {
   display: none;
   background: none;
   border: none;
@@ -129,10 +130,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .nav-left {
+  .dashboard-nav-inner {
+    padding: 0 16px !important;
+  }
+  .dashboard-nav .nav-left {
     width: auto;
   }
-  .nav-links {
+  .dashboard-nav .nav-links {
     position: absolute;
     top: 75px;
     left: 0;
@@ -150,20 +154,26 @@
     z-index: 99;
   }
   
-  .nav-links.open {
+  .dashboard-nav .nav-links.open {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 
-  .nav-links a {
+  .dashboard-nav .nav-links a {
     width: 100%;
     padding: 16px 24px;
     border-bottom: 1px solid #f1f5f9;
   }
 
-  .mobile-menu-btn {
+  .dashboard-nav .mobile-menu-btn {
     display: flex;
-    margin-left: 12px;
+    margin-left: 0;
+  }
+  .dashboard-nav .nav-right {
+    gap: 8px;
+  }
+  .dashboard-nav .nav-avatar {
+    margin-left: 0;
   }
 }

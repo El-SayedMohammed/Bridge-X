@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Landing.css';
 
@@ -26,6 +26,7 @@ import iconSocialGlobe from '../../assets/images/icon-social-globe.svg';
 
 const Landing = () => {
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="landing-page">
@@ -43,6 +44,25 @@ const Landing = () => {
           <div className="nav-actions">
             <span className="login-link" style={{cursor: 'pointer'}} onClick={() => navigate('/splash')}>Log In</span>
             <button className="landing-btn-primary" onClick={() => navigate('/splash')}>Join BridgeX</button>
+            <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-menu-links">
+            <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+            <a href="#companies" onClick={() => setIsMobileMenuOpen(false)}>For Companies</a>
+            <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
+            <a href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+            <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
+            <span className="mobile-login" onClick={() => { setIsMobileMenuOpen(false); navigate('/splash'); }}>Log In</span>
           </div>
         </div>
       </nav>

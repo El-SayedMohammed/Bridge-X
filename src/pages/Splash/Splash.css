@@ -187,10 +187,11 @@
 
 @media (max-width: 768px) {
   .splash-logo-wrapper {
-    width: 240px;
+    width: 90px; /* Reduced from 140px */
   }
   .splash-title {
-    font-size: 40px;
+    font-size: 24px; /* Reduced from 40px */
+    margin-top: 8px;
   }
   .splash-tagline {
     font-size: 18px;
