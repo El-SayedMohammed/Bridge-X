@@ -105,6 +105,13 @@ function Profile() {
     });
   }
 
+  let finalWebsite = profileData.website;
+  if (!finalWebsite || finalWebsite === "null" || String(finalWebsite).trim() === "") {
+    finalWebsite = websiteLinks.length > 0 ? websiteLinks[0] : "";
+  }
+  const displayWebsite = String(finalWebsite || "").trim();
+  const showWebsiteLink = displayWebsite.length > 0 && displayWebsite !== "null" && displayWebsite !== "http://" && displayWebsite !== "https://";
+
   return (
     <div className="profile-page">
       <div className="bg-container">
@@ -160,8 +167,8 @@ function Profile() {
                     <div className="view-detail-item"><p className="view-detail-label">CR NUMBER</p><p className="view-detail-value view-detail-value-large">{profileData.crNumber || "—"}</p></div>
                     <div className="view-detail-item">
                       <p className="view-detail-label">WEBSITE</p>
-                      {profileData.website || websiteLinks.length > 0 ? (
-                        profileData.website && <a href={profileData.website.startsWith("http") ? profileData.website : `https://${profileData.website}`} target="_blank" rel="noreferrer" className="view-detail-link">{profileData.website.replace(/^https?:\/\//, "")}</a>
+                      {showWebsiteLink ? (
+                        <a href={displayWebsite.startsWith("http") ? displayWebsite : `https://${displayWebsite}`} target="_blank" rel="noreferrer" className="view-detail-link">{displayWebsite.replace(/^https?:\/\//, "")}</a>
                       ) : (<p className="view-detail-value">—</p>)}
                     </div>
                     <div className="view-detail-item"><p className="view-detail-label">HQ LOCATION</p><p className="view-detail-value view-detail-value-large">{profileData.location}, {profileData.country}</p></div>
