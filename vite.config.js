@@ -8,7 +8,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       '/api': {
-        target: 'https://lissom-cecila-unartificial.ngrok-free.dev',
+        target: 'https://teamwork2-main-opmxfq.free.laravel.cloud',
         changeOrigin: true,
         secure: true,
         configure: (proxy) => {
