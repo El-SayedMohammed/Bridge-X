@@ -936,7 +936,7 @@ a {
     font-size: 10px;
   }
   .btn-large {
-    width: 100%;
+    width: auto;
     justify-content: center;
   }
   .nav-actions .login-link {
