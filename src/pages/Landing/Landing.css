@@ -249,6 +249,13 @@ a {
   gap: 24px;
   max-width: 552px;
   margin-top: 80px;
+  position: relative;
+}
+
+@media (min-width: 1400px) {
+  .hero-content {
+    left: -80px;
+  }
 }
 
 .hero-content h1 {
