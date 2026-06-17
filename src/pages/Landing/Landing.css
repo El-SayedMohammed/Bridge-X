@@ -242,6 +242,7 @@ a {
   padding: 0 24px;
   z-index: 1;
   position: relative;
+  gap: 32px;
 }
 
 .hero-content {
@@ -249,6 +250,8 @@ a {
   flex-direction: column;
   gap: 24px;
   max-width: 552px;
+  min-width: 400px;
+  flex: 1;
   margin-top: 0;
   position: relative;
 }
@@ -343,8 +346,10 @@ a {
 /* Hero Visual Mockup */
 .hero-visual {
   position: relative;
-  width: 792px;
-  height: 609px;
+  width: 100%;
+  max-width: 792px;
+  height: auto;
+  flex: 1;
   right: -50px;
 }
 
