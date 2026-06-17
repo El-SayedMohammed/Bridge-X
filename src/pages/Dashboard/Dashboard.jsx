@@ -114,6 +114,8 @@ const fetchDevelopers = async (params) => {
     });
 
 
+
+
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       developers = developers.filter(dev => 
@@ -244,7 +246,7 @@ const DashboardPage = () => {
     };
   }, [page, debouncedSearch, filters]);
 
-  const handleSearch = (e) => { setSearch(e.target.value); setPage(1); };
+  const handleSearch = (e) => { setSearch(e.target.value); };
   const handleFilter = (key, value) => { setFilters((f) => ({ ...f, [key]: value })); setPage(1); };
   const removeChip   = (key) => handleFilter(key, "All");
   const clearAll     = () => { setFilters({ category: "All", skill: "All", level: "All", rating: "All" }); setPage(1); };
