@@ -304,3 +304,36 @@
     max-width: 500px;
   }
 }
+
+@media (max-width: 768px) {
+  .onboarding-title {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .onboarding-desc {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 32px;
+  }
+  .feature-label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .feature-sub {
+    font-size: 13px;
+  }
+  .btn-next {
+    width: 130px;
+    height: 52px;
+    font-size: 16px;
+  }
+  .btn-skip {
+    height: 52px;
+    font-size: 16px;
+  }
+  .features-list {
+    margin-bottom: 32px;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
