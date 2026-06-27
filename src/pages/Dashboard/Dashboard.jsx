@@ -316,9 +316,9 @@ const DashboardPage = () => {
 
           <div className="db-filter-bar">
             <span className="db-filter-label">Filters:</span>
-            <FilterDropdown label="Track" options={["All", "Frontend Developer", "Backend Developer", "Full Stack Developer", "Mobile Developer", "UI/UX Designer", "DevOps Engineer", "Data Scientist", "Cyber Security Specialist", "AI / ML Engineer", "QA Engineer", "Game Developer"]} selected={filters.category} onSelect={(v) => handleFilter("category", v)} />
+            <FilterDropdown label="Track" options={["All", "Frontend", "UI/UX", "DevOps", "Data science", "Backend", "AI", "Mobile"]} selected={filters.category} onSelect={(v) => handleFilter("category", v)} />
             <FilterDropdown label="Level" options={["All", "Beginner", "Junior", "Senior"]} selected={filters.level} onSelect={(v) => handleFilter("level", v)} />
-            <FilterDropdown label="Rating" options={["All", "1", "2", "3", "4", "5"]} selected={filters.rating} onSelect={(v) => handleFilter("rating", v)} />
+            <FilterDropdown label="Rating" options={["All", "0", "1", "2", "3", "4", "5"]} selected={filters.rating} onSelect={(v) => handleFilter("rating", v)} />
 
             {activeChips.length > 0 && (
               <>
