@@ -79,12 +79,33 @@ const fetchDevelopers = async (params) => {
       const rawLevel = String(dev.experience_level !== null && dev.experience_level !== undefined ? dev.experience_level : (dev.level !== null && dev.level !== undefined ? dev.level : "Junior"));
       const levelVal = rawLevel.length > 0 ? (rawLevel.charAt(0).toUpperCase() + rawLevel.slice(1).toLowerCase()) : "Junior";
 
+      let avatarLink = dev.avatar_url || dev.avatar || dev.image || dev.cover_image || dev.profile_picture || dev.user?.avatar_url || dev.user?.avatar || dev.user?.image || null;
+      if (avatarLink && !avatarLink.startsWith('http') && !avatarLink.startsWith('data:') && !avatarLink.startsWith('blob:')) {
+        if (!avatarLink.startsWith('/')) {
+          if (avatarLink.startsWith('storage/')) {
+            avatarLink = '/' + avatarLink;
+          } else if (avatarLink.startsWith('avatars/') || avatarLink.startsWith('images/') || avatarLink.startsWith('users/')) {
+            avatarLink = '/storage/' + avatarLink;
+          } else {
+            avatarLink = '/storage/avatars/' + avatarLink;
+          }
+        } else if (!avatarLink.startsWith('/storage/')) {
+          avatarLink = '/storage' + avatarLink;
+        }
+        avatarLink = `https://teamwork2-main-opmxfq.free.laravel.cloud${avatarLink}`;
+      } else if (avatarLink && avatarLink.startsWith('http://localhost')) {
+        avatarLink = avatarLink.replace(/^http:\/\/localhost(:\d+)?/, 'https://teamwork2-main-opmxfq.free.laravel.cloud');
+      } else if (avatarLink && avatarLink.startsWith('http://')) {
+        avatarLink = avatarLink.replace('http://', 'https://');
+      }
+
       return {
         ...dev, 
         id: dev.id,
         name: name,
         initials: initials,
         avatarBg: AVATAR_GRADIENTS[poolIdx],
+        avatar_url: avatarLink,
         role: dev.tracks || dev.track || dev.role || "Developer",
         category: dev.category || dev.tracks || dev.track || "Development",
         skills: finalSkills.slice(0, 3),
@@ -323,8 +344,18 @@ const DashboardPage = () => {
             <div key={dev.id} className="db-card" style={{ animationDelay: `${0.17 + index * 0.055}s` }}>
               <div className="db-card-header">
                 <div className="db-card-identity">
-                  <div className="db-card-avatar" style={{ background: dev.avatarBg }}>
-                    {dev.initials}
+                  <div className="db-card-avatar" style={{ background: dev.avatarBg, overflow: "hidden", position: "relative" }}>
+                    <span style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {dev.initials}
+                    </span>
+                    {(dev.avatar_url || dev.avatar) && (
+                      <img 
+                        src={dev.avatar_url || dev.avatar} 
+                        alt="" 
+                        style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "cover" }} 
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    )}
                   </div>
                   <div>
                     <h3 className="db-card-name">{dev.name}</h3>

@@ -74,6 +74,26 @@ const Requests = () => {
           }
           const finalSkills = skillsArr.map(s => typeof s === "object" ? s?.name || "Skill" : String(s)).slice(0, 3);
 
+          let avatarLink = programmer.avatar_url || programmer.avatar || programmer.user?.avatar_url || programmer.user?.avatar || null;
+          if (avatarLink && !avatarLink.startsWith('http') && !avatarLink.startsWith('data:') && !avatarLink.startsWith('blob:')) {
+            if (!avatarLink.startsWith('/')) {
+              if (avatarLink.startsWith('storage/')) {
+                avatarLink = '/' + avatarLink;
+              } else if (avatarLink.startsWith('avatars/') || avatarLink.startsWith('images/') || avatarLink.startsWith('users/')) {
+                avatarLink = '/storage/' + avatarLink;
+              } else {
+                avatarLink = '/storage/avatars/' + avatarLink;
+              }
+            } else if (!avatarLink.startsWith('/storage/')) {
+              avatarLink = '/storage' + avatarLink;
+            }
+            avatarLink = `https://teamwork2-main-opmxfq.free.laravel.cloud${avatarLink}`;
+          } else if (avatarLink && avatarLink.startsWith('http://localhost')) {
+            avatarLink = avatarLink.replace(/^http:\/\/localhost(:\d+)?/, 'https://teamwork2-main-opmxfq.free.laravel.cloud');
+          } else if (avatarLink && avatarLink.startsWith('http://')) {
+            avatarLink = avatarLink.replace('http://', 'https://');
+          }
+
           return {
             id: offer.id,
             programmer_id: programmer.id || offer.programmer_id,
@@ -81,6 +101,7 @@ const Requests = () => {
             role: programmer.tracks || programmer.track || programmer.role || "Developer",
             initials,
             avatarBg: "linear-gradient(135deg, #38bdf8, #6366f1)", 
+            avatar_url: avatarLink,
             skills: finalSkills,
             jobOffer: offer.title || "Job Offer",
             jobType: (offer.job_type || "FULL-TIME").toUpperCase(),
@@ -207,8 +228,18 @@ const Requests = () => {
                     className={`or-row${i < candidates.length - 1 ? " or-row--bordered" : ""}${isNew ? " or-row--new" : ""}`}
                   >
                     <div className="or-col-candidate" onClick={() => handleViewProfile(c)}>
-                      <div className="or-avatar" style={{ background: c.avatarBg }}>
-                        {c.initials}
+                      <div className="or-avatar" style={{ background: c.avatarBg, overflow: "hidden", position: "relative" }}>
+                        <span style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          {c.initials}
+                        </span>
+                        {c.avatar_url && (
+                          <img 
+                            src={c.avatar_url} 
+                            alt="" 
+                            style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", objectFit: "cover" }} 
+                            onError={(e) => { e.target.style.display = 'none'; }}
+                          />
+                        )}
                       </div>
                       <div className="or-candidate-info">
                         <span className="or-candidate-name">

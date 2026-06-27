@@ -58,6 +58,28 @@ const CandidateProfile = () => {
 
   const fetchedDetails = detailsCache[baseCurrent.id] || {};
   const current = { ...baseCurrent, ...fetchedDetails };
+  
+  let avatarLink = current.avatar_url || current.avatar || current.user?.avatar_url || current.user?.avatar || null;
+  if (avatarLink && !avatarLink.startsWith('http') && !avatarLink.startsWith('data:') && !avatarLink.startsWith('blob:')) {
+    if (!avatarLink.startsWith('/')) {
+      if (avatarLink.startsWith('storage/')) {
+        avatarLink = '/' + avatarLink;
+      } else if (avatarLink.startsWith('avatars/') || avatarLink.startsWith('images/') || avatarLink.startsWith('users/')) {
+        avatarLink = '/storage/' + avatarLink;
+      } else {
+        avatarLink = '/storage/avatars/' + avatarLink;
+      }
+    } else if (!avatarLink.startsWith('/storage/')) {
+      avatarLink = '/storage' + avatarLink;
+    }
+    avatarLink = `https://teamwork2-main-opmxfq.free.laravel.cloud${avatarLink}`;
+  } else if (avatarLink && avatarLink.startsWith('http://localhost')) {
+    avatarLink = avatarLink.replace(/^http:\/\/localhost(:\d+)?/, 'https://teamwork2-main-opmxfq.free.laravel.cloud');
+  } else if (avatarLink && avatarLink.startsWith('http://')) {
+    avatarLink = avatarLink.replace('http://', 'https://');
+  }
+  current.avatar_url = avatarLink;
+  
   current.projects = [];
 
 
@@ -125,15 +147,17 @@ const CandidateProfile = () => {
         <div className="profile-header-card">
           <div className="developer-profile">
             <div className="avatar-section">
-              <div className="avatar-circle" style={{ background: current.avatarBg }}>
-                {current.avatar_url || current.avatar ? (
+              <div className="avatar-circle" style={{ background: current.avatarBg, position: "relative", overflow: "hidden" }}>
+                <span className="avatar-initials" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  {current.initials}
+                </span>
+                {(current.avatar_url || current.avatar) && (
                   <img 
                     src={current.avatar_url || current.avatar} 
-                    alt={current.name} 
-                    style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} 
+                    alt="" 
+                    style={{ position: "relative", zIndex: 1, width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} 
+                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
-                ) : (
-                  <span className="avatar-initials">{current.initials}</span>
                 )}
               </div>
               <div className="tier-badge">{current.tier}</div>
