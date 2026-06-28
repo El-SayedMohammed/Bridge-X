@@ -42,7 +42,7 @@ const Landing = () => {
             <a href="#pricing">Pricing</a>
           </div>
           <div className="nav-actions">
-            <span className="login-link" style={{cursor: 'pointer'}} onClick={() => navigate('/splash')}>Log In</span>
+            <span className="login-link" style={{cursor: 'pointer'}} onClick={() => navigate('/login')}>Log In</span>
             <button className="landing-btn-primary" onClick={() => navigate('/splash')}>Join BridgeX</button>
             <button className="hamburger-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -62,7 +62,7 @@ const Landing = () => {
             <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
             <a href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
             <a href="#pricing" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
-            <span className="mobile-login" onClick={() => { setIsMobileMenuOpen(false); navigate('/splash'); }}>Log In</span>
+            <span className="mobile-login" onClick={() => { setIsMobileMenuOpen(false); navigate('/login'); }}>Log In</span>
           </div>
         </div>
       </nav>
