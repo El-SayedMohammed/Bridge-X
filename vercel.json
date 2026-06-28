@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://teamwork-api-production.up.railway.app/api/$1"
+      "destination": "https://teamwork2-production-ucr9dn.laravel.cloud/api/$1"
     },
     {
       "source": "/(.*)",

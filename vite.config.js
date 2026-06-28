@@ -8,7 +8,7 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       '/api': {
-        target: 'https://teamwork-api-production.up.railway.app',
+        target: 'https://teamwork2-production-ucr9dn.laravel.cloud',
         changeOrigin: true,
         secure: true,
         configure: (proxy) => {
