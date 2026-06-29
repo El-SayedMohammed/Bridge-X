@@ -72,9 +72,9 @@ const CandidateProfile = () => {
     } else if (!avatarLink.startsWith('/storage/')) {
       avatarLink = '/storage' + avatarLink;
     }
-    avatarLink = `https://teamwork2-main-opmxfq.free.laravel.cloud${avatarLink}`;
+    avatarLink = `https://teamwork2-production-ucr9dn.laravel.cloud${avatarLink}`;
   } else if (avatarLink && avatarLink.startsWith('http://localhost')) {
-    avatarLink = avatarLink.replace(/^http:\/\/localhost(:\d+)?/, 'https://teamwork2-main-opmxfq.free.laravel.cloud');
+    avatarLink = avatarLink.replace(/^http:\/\/localhost(:\d+)?/, 'https://teamwork2-production-ucr9dn.laravel.cloud');
   } else if (avatarLink && avatarLink.startsWith('http://')) {
     avatarLink = avatarLink.replace('http://', 'https://');
   }
